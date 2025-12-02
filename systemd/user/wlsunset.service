@@ -1,0 +1,13 @@
+[Unit]
+Description=wlsunset temperatura de color
+After=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/wlsunset -S 8:00 -s 19:00 -l 41.4 -L 2.1
+Restart=on-failure
+
+[Install]
+WantedBy=graphical-session.target
+
+
+

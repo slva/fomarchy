@@ -1,0 +1,12 @@
+[user]
+	name = Omarchy User
+	email = user@example.com
+[color]
+	ui = auto
+[core]
+	editor = nvim
+[pull]
+	rebase = false
+
+
+
