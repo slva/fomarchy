@@ -83,13 +83,13 @@ install_font "NotoEmojiColor" "${NOTO_EMOJI_URL}" # This is a direct TTF, not a 
 
 # Inter
 # Google Fonts direct download
-INTER_URL="https://fonts.google.com/download?family=Inter"
-install_font "Inter" "${INTER_URL}"
+#INTER_URL="https://fonts.google.com/download?family=Inter"
+#install_font "Inter" "${INTER_URL}"
 
 # Bravura
 # From SMuFL GitHub releases
 BRAVURA_VERSION="1.392" # Latest stable version
-BRAVURA_URL="https://github.com/smufl/Bravura/releases/download/v${BRAVURA_VERSION}/Bravura_1.392.zip"
+BRAVURA_URL="https://github.com/steinbergmedia/bravura/archive/refs/tags/bravura-${BRAVURA_VERSION}.zip"
 install_font "Bravura" "${BRAVURA_URL}"
 
 # CaskaydiaCove Nerd Font
