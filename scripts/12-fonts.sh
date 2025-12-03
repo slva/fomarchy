@@ -66,13 +66,13 @@ install_font "NotoSerifCJK" "${NOTO_SERIF_CJK_URL}"
 
 # Noto Sans Mono
 # Google Fonts usually provides direct download via a structured URL
-NOTO_SANS_MONO_URL="https://fonts.google.com/download?family=Noto%20Sans%20Mono"
-install_font "NotoSansMono" "${NOTO_SANS_MONO_URL}"
+#NOTO_SANS_MONO_URL="https://fonts.google.com/download?family=Noto%20Sans%20Mono"
+#install_font "NotoSansMono" "${NOTO_SANS_MONO_URL}"
 
 # Noto Emoji Color
 # Using a specific release from googlefonts/noto-emoji
-NOTO_EMOJI_VERSION="2.038" # Latest stable release with color emoji
-NOTO_EMOJI_URL="https://github.com/googlefonts/noto-emoji/releases/download/v${NOTO_EMOJI_VERSION}/NotoColorEmoji.ttf"
+NOTO_EMOJI_VERSION="2.051" # Latest stable release with color emoji
+NOTO_EMOJI_URL="https://github.com/googlefonts/noto-emoji/archive/refs/tags/v${NOTO_EMOJI_VERSION}.zip"
 install_font "NotoEmojiColor" "${NOTO_EMOJI_URL}" # This is a direct TTF, not a zip, need to adjust install_font or handle separately.
 # For NotoColorEmoji.ttf, the install_font function will try to unzip it, which will fail.
 # I need to modify install_font to handle direct font files or create a separate function.
