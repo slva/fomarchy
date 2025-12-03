@@ -26,6 +26,11 @@ install_font() {
   local file_mime_type=$(file --mime-type -b "${temp_file}")
   info "Detected MIME type: ${file_mime_type}"
 
+  # If it's HTML, save it for inspection
+  if [[ "${file_mime_type}" == "text/html" ]]; then
+    cp "${temp_file}" "/tmp/${font_name}_downloaded.html"
+  fi
+
   if [[ "${file_mime_type}" == "application/zip" || ( "${file_mime_type}" == "application/octet-stream" && $(unzip -t "${temp_file}" &>/dev/null; echo $?) == 0 ) ]]; then
     # If it's a zip or an octet-stream that passes unzip -t
     info "Extracting ${font_name} from zip to ${temp_extract_dir}"
