@@ -24,16 +24,15 @@ install_font() {
 
   # Determine file type and process
   local file_mime_type=$(file --mime-type -b "${temp_file}")
-  info "Detected MIME type: ${file_mime_type}" # Added for debugging
+  info "Detected MIME type: ${file_mime_type}"
 
-  if [[ "${file_mime_type}" == "application/zip" ]]; then
+  if [[ "${file_mime_type}" == "application/zip" || ( "${file_mime_type}" == "application/octet-stream" && $(unzip -t "${temp_file}" &>/dev/null; echo $?) == 0 ) ]]; then
+    # If it's a zip or an octet-stream that passes unzip -t
     info "Extracting ${font_name} from zip to ${temp_extract_dir}"
     mkdir -p "${temp_extract_dir}"
     unzip -o "${temp_file}" -d "${temp_extract_dir}"
-    # Copy font files from extracted directory
     info "Copying ${font_name} font files to ${font_install_dir}"
     find "${temp_extract_dir}" -type f \( -name "*.ttf" -o -name "*.otf" \) -exec cp {} "${font_install_dir}/" \;
-    # Clean up extracted directory
     rm -rf "${temp_extract_dir}"
   elif [[ "${file_mime_type}" == "font/ttf" || "${file_mime_type}" == "font/otf" ]]; then
     info "Copying direct font file ${font_name} to ${font_install_dir}"
