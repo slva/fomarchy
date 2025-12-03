@@ -53,8 +53,8 @@ install_font "JetBrainsMonoNF" "${JB_MONO_NF_URL}"
 
 # Noto Serif CJK
 # Using a specific release from googlei18n/noto-cjk
-NOTO_SERIF_CJK_VERSION="20190412" # Latest stable release
-NOTO_SERIF_CJK_URL="https://github.com/googlei18n/noto-cjk/releases/download/${NOTO_SERIF_CJK_VERSION}/NotoSerifCJK-All.zip"
+NOTO_SERIF_CJK_VERSION="Serif2.003" # Latest stable release
+NOTO_SERIF_CJK_URL="https://github.com/notofonts/noto-cjk/releases/download/${NOTO_SERIF_CJK_VERSION}/05_NotoSerifCJKOTF.zip"
 install_font "NotoSerifCJK" "${NOTO_SERIF_CJK_URL}"
 
 # Noto Sans Mono
