@@ -85,6 +85,11 @@ BRAVURA_VERSION="1.392" # Latest stable version
 BRAVURA_URL="https://github.com/smufl/Bravura/releases/download/v${BRAVURA_VERSION}/Bravura_1.392.zip"
 install_font "Bravura" "${BRAVURA_URL}"
 
+# CaskaydiaCove Nerd Font
+CASKAYDIACODE_NF_VERSION="3.0.2"
+CASKAYDIACODE_NF_URL="https://github.com/ryanoasis/nerd-fonts/releases/download/v${CASKAYDIACODE_NF_VERSION}/CascadiaCode.zip"
+install_font "CaskaydiaCoveNF" "${CASKAYDIACODE_NF_URL}"
+
 
 info "Updating font cache..."
 fc-cache -f -v

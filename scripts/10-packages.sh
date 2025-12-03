@@ -29,20 +29,8 @@ BASE_PACKAGES=(
   wget curl unzip openssl gnome-keyring seahorse sshpass
 )
 
-CODECS_PACKAGES=(
-  ffmpeg
-  gstreamer1-libav
-  gstreamer1-plugin-openh264
-  gstreamer1-vaapi
-  libdvdcss
-  pipewire-codec-aptx
-)
-
 info "Instal·lant paquets base (${#BASE_PACKAGES[@]})"
 dnf install -y "${BASE_PACKAGES[@]}"
-
-info "Instal·lant codecs multimèdia"
-dnf install -y "${CODECS_PACKAGES[@]}"
 
 # Install fonts using the custom script
 info "Instal·lant fonts personalitzades"
