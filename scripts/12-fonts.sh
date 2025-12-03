@@ -23,7 +23,10 @@ install_font() {
   curl -L -o "${temp_file}" "${download_url}"
 
   # Determine file type and process
-  if [[ "${download_url}" == *.zip ]]; then
+  local file_mime_type=$(file --mime-type -b "${temp_file}")
+  info "Detected MIME type: ${file_mime_type}" # Added for debugging
+
+  if [[ "${file_mime_type}" == "application/zip" ]]; then
     info "Extracting ${font_name} from zip to ${temp_extract_dir}"
     mkdir -p "${temp_extract_dir}"
     unzip -o "${temp_file}" -d "${temp_extract_dir}"
@@ -32,11 +35,11 @@ install_font() {
     find "${temp_extract_dir}" -type f \( -name "*.ttf" -o -name "*.otf" \) -exec cp {} "${font_install_dir}/" \;
     # Clean up extracted directory
     rm -rf "${temp_extract_dir}"
-  elif [[ "${download_url}" == *.ttf || "${download_url}" == *.otf ]]; then
+  elif [[ "${file_mime_type}" == "font/ttf" || "${file_mime_type}" == "font/otf" ]]; then
     info "Copying direct font file ${font_name} to ${font_install_dir}"
     cp "${temp_file}" "${font_install_dir}/"
   else
-    error "Unsupported file type for ${font_name} download: ${download_url}"
+    error "Unsupported file type (${file_mime_type}) for ${font_name} download: ${download_url}"
     rm -f "${temp_file}"
     return 1
   fi
